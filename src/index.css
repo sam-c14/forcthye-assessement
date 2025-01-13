@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400; */
+  font-family: "Lexend", serif;
+  font-optical-sizing: auto;
+  color-scheme: light dark;
+  background-color: #030516;
+
+  /* font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+@keyframes slide-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.rfm-marquee-container {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.rfm-marquee {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  white-space: nowrap;
+}
+
+.rfm-marquee.left-to-right {
+  animation-name: slide-right;
+}
+
+.rfm-marquee.right-to-left {
+  animation-name: slide-left;
+}
+
+.rfm-marquee img {
+  display: inline-block;
+  width: auto;
+  height: 100%;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.card-container {
+  transition: all 0.5s ease;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    18% 46% at 72% 28%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: blur(2px);
+}
+.border-animation {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: inherit;
+  filter: blur(2px);
+  animation: moveGradient 5s linear infinite;
+  background: radial-gradient(
+    20.4458% 49.5722% at 0% 50%,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@keyframes moveGradient {
+  0% {
+    background: radial-gradient(
+      20.4458% 49.5722% at 0% 50%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      20.4458% 49.5722% at 50% 0%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      20.4458% 49.5722% at 100% 50%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      20.4458% 49.5722% at 50% 100%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+  100% {
+    background: radial-gradient(
+      20.4458% 49.5722% at 0% 50%,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+.count-arc-background {
+  background: linear-gradient(to bottom, #030516, #0c2645),
+    url("https://forcythe.com/images/arc-L.svg");
+  background-size: cover, contain;
+  background-position: top, center;
+  background-repeat: no-repeat, no-repeat;
+}
+@keyframes fadeInAndSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
