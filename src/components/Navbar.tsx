@@ -47,15 +47,14 @@ const Navbar = () => {
             width="150"
             height="10"
             decoding="async"
-            className="w-28 sm:w-32 md:w-auto"
+            className="w-28 sm:w-32 md:w-28 text-transparent pointer-events-none"
             src={Logo}
-            style={{ color: "transparent" }}
           />
         </a>
-        <div className="hidden md:flex items-center gap-4 text-base">
-          {navItems.map((item) => (
-            <a href={item.href}>
-              <span>{item.label}</span>
+        <div className="hidden md:flex items-center gap-4 lg:text-base text-sm">
+          {navItems.slice(0, 5).map((item) => (
+            <a key={item.href} href={item.href} className="text-inherit">
+              <span className="text-inherit">{item.label}</span>
             </a>
           ))}
         </div>
