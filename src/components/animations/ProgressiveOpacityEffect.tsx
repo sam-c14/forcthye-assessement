@@ -20,7 +20,8 @@ const ProgressiveOpacityEffect: React.FC<ProgressiveOpacityEffectProps> = ({
     if (textRef.current) {
       const words = Array.from(textRef.current.querySelectorAll("span"));
       words.forEach((word) => {
-        word.style.opacity = "0";
+        word.classList.remove("opacity-100");
+        word.classList.add("opacity-0");
         word.style.transition = "none";
       });
     }
@@ -48,25 +49,31 @@ const ProgressiveOpacityEffect: React.FC<ProgressiveOpacityEffectProps> = ({
   }, []);
 
   useEffect(() => {
-    if (isInView || triggerAnimation) {
-      const timeoutId = setTimeout(() => {
-        if (textRef.current) {
-          const words = Array.from(textRef.current.querySelectorAll("span"));
-          words.forEach((word, index) => {
-            word.style.transition = `opacity ${duration}ms ease-in-out ${
-              index * delay
-            }ms`;
-            setTimeout(() => {
-              word.style.opacity = "1";
-            }, index * delay);
-          });
-        }
-      }, 100);
+    const runAnimation = () => {
+      if (textRef.current) {
+        const words = Array.from(textRef.current.querySelectorAll("span"));
+        words.forEach((word, index) => {
+          word.style.transition = `opacity ${duration}ms ease-in-out ${
+            index * delay
+          }ms`;
+          //   if (word.classList.contains("opacity-100"))
+          //     word.classList.remove("opacity-100");
+          setTimeout(() => {
+            word.classList.remove("opacity-0");
+            word.classList.add("opacity-100");
+            // word.style.opacity = "1";
+          }, index * delay);
+        });
+      }
+    };
 
-      // Cleanup timeout
-      return () => {
-        clearTimeout(timeoutId);
-      };
+    const resetAndRunAnimation = () => {
+      resetAnimation(); // Reset the animation
+      runAnimation(); // Reapply the animation
+    };
+
+    if (isInView || triggerAnimation) {
+      resetAndRunAnimation();
     }
   }, [isInView, triggerAnimation, delay, duration]);
 

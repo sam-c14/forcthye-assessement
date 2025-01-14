@@ -67,7 +67,7 @@ const TestimonialCard: FC<TestimonialsCardProps> = ({
 
         <div>
           <ProgressiveOpacityEffect delay={150} duration={1000}>
-            <p className="text-[15px] font-semibold mb-4">{testifier}</p>
+            <p className="text-[15px] font-normal mb-4">{testifier}</p>
           </ProgressiveOpacityEffect>
         </div>
       </div>
