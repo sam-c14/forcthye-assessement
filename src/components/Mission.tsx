@@ -12,7 +12,7 @@ const Mission = () => {
         <div className="mb-12 xl:mb-0 max-w-[45rem]">
           <div>
             <ProgressiveOpacityEffect delay={150} duration={1000}>
-              <p className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3rem]">
+              <div className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3rem]">
                 <div>
                   From <span className="text-[#60a6e7] capitalize">Spark </span>
                   to
@@ -22,7 +22,7 @@ const Mission = () => {
                   </span>
                   we take you every step of the way to success.
                 </div>
-              </p>
+              </div>
             </ProgressiveOpacityEffect>
           </div>
         </div>
